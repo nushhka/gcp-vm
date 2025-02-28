@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set variables
-ZONE="us-central1-a"
+ZONE="asia-south1-c"
 INSTANCE_GROUP="auto-scaling-group"
 
 # Set auto-scaling policy
