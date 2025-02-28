@@ -2,18 +2,17 @@
 
 # Set variables
 PROJECT_ID="your-project-id"
-ZONE="us-central1-a"
+ZONE="asia-south1-c"
 INSTANCE_TEMPLATE="auto-scaling-template"
-MACHINE_TYPE="e2-medium"
+MACHINE_TYPE="e2"
 
 # Create an instance template
 gcloud compute instance-templates create $INSTANCE_TEMPLATE \
     --machine-type=$MACHINE_TYPE \
-    --image-family=debian-11 \
-    --image-project=debian-cloud \
-    --boot-disk-size=20GB \
+    --image-family=ubuntu \
+    --image-project=ubuntu 20.04 \
+    --boot-disk-size=10GB \
     --metadata=startup-script='#!/bin/bash
-    sudo apt update -y && sudo apt install -y apache2 && sudo systemctl start apache2' \
     --tags=http-server
 
 # Create a Managed Instance Group
