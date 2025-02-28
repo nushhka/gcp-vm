@@ -29,9 +29,31 @@ gcloud compute firewall-rules list
 gcloud compute instance-groups managed describe auto-scaling-group
 ```
 
+## 📜 Explanation of Scripts
+### `create-instance.sh` - VM Instance & Instance Group Creation
+This script:
+- Creates an instance template (`auto-scaling-template`).
+- Configures a VM with **Ubuntu 20.04 LTS**.
+- Allows **HTTP/HTTPS traffic**.
+- Uses **metadata startup script** to install Apache.
+- Creates a **Managed Instance Group (MIG)**.
+
+### `setup-firewall.sh` - Configures Firewall Rules
+This script:
+- Creates a **firewall rule** (`allow-http`).
+- Allows **TCP:80 (HTTP)** for incoming traffic.
+- Uses **target tags** to ensure only specific instances are affected.
+
+### `configure-auto-scaling.sh` - Auto-Scaling Configuration
+This script:
+- Enables **auto-scaling** on the **Managed Instance Group**.
+- Sets **CPU-based scaling policy** (scale up at **60% CPU usage**).
+- Defines **min/max instances** (`1-5`).
+- Configures a **cool-down period of 60 seconds** to prevent unnecessary scaling.
+
+
 ## 🎯 Features
 ✅ Auto-Scaling (Scale up/down based on CPU)  
-✅ Firewall Rule for HTTP Traffic  
-✅ Startup Script to Install Apache  
+✅ Firewall Rule for HTTP Traffic    
 
 📌 **Note:** Modify variables in scripts as per your project settings.
