@@ -29,12 +29,6 @@ gcloud compute firewall-rules list
 gcloud compute instance-groups managed describe auto-scaling-group
 ```
 
-### 4️⃣ Cleanup (if needed)
-```bash
-gcloud compute instance-groups managed delete auto-scaling-group --zone=us-central1-a
-gcloud compute firewall-rules delete allow-http
-```
-
 ## 🎯 Features
 ✅ Auto-Scaling (Scale up/down based on CPU)  
 ✅ Firewall Rule for HTTP Traffic  
